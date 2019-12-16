@@ -1,5 +1,5 @@
-name: snack
-description: A SnackBar extension for easier access
+name: snack_example
+description: An example of the `snack` package
 version: 1.0.0
 homepage: https://github.com/arnemolland/snack
 
@@ -10,8 +10,5 @@ dependencies:
   flutter:
     sdk: flutter
 
-  pedantic: ^1.8.0
-
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
+  snack:
+    path: ../
