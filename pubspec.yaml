@@ -1,6 +1,6 @@
 name: snack
 description: An extension library for easier access to commonly used functionality for SnackBars
-version: 1.0.2
+version: 1.0.3
 homepage: https://github.com/arnemolland/snack
 
 environment:

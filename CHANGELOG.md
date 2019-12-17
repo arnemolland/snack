@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.3
+
+- Added a `hideCurrent` parameter to hide any current `SnackBar`.
+
 ## 1.0.2
 
 - Added an optional parameter `root`, a `bool` value that decides if the `SnackBar` should be shown in the context of the nearest or furthest `Scaffold`
