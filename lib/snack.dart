@@ -12,7 +12,9 @@ extension Snack on SnackBar {
   /// `scaffoldState`: If set, the `SnackBar` is shown in the context
   /// of the given `ScaffoldState`
   show(BuildContext context,
-      {bool root = false, bool hideCurrent = true, ScaffoldState scaffoldState}) {
+      {bool root = false,
+      bool hideCurrent = true,
+      ScaffoldState scaffoldState}) {
     if (scaffoldState != null) {
       if (hideCurrent) {
         scaffoldState.hideCurrentSnackBar();
@@ -31,4 +33,8 @@ extension Snack on SnackBar {
       Scaffold.of(context).showSnackBar(this);
     }
   }
+}
+
+extension Extra on BuildContext {
+  hideSnack() => Scaffold.of(this).hideCurrentSnackBar();
 }

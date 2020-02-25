@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.4
+
+- Added `Extra` extension on BuildContext to hide current snackbar
+
 ## 1.0.3
 
 - Added a `hideCurrent` parameter to hide any current `SnackBar`.
