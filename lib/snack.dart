@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+/// [SnackBar] extension simplifying tasks like showing a [SnackBar] in a given
+/// context or [ScaffoldState].
 extension Snack on SnackBar {
   /// Shows the `SnackBar` in the context of a `Scaffold`
   ///
@@ -11,7 +13,7 @@ extension Snack on SnackBar {
   ///
   /// `scaffoldState`: If set, the `SnackBar` is shown in the context
   /// of the given `ScaffoldState`
-  show(BuildContext context,
+  void show(BuildContext context,
       {bool root = false,
       bool hideCurrent = true,
       ScaffoldState scaffoldState}) {
@@ -35,6 +37,8 @@ extension Snack on SnackBar {
   }
 }
 
+/// [BuildContext] extensions for performing [SnackBar]-related actions
+/// on the context instance.
 extension Extra on BuildContext {
-  hideSnack() => Scaffold.of(this).hideCurrentSnackBar();
+  void hideSnack() => Scaffold.of(this).hideCurrentSnackBar();
 }

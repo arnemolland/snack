@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.5
+
+- Add library-level documentation
+
 ## 1.0.4
 
 - Added `Extra` extension on BuildContext to hide current snackbar

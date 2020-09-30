@@ -1,6 +1,6 @@
 name: snack
 description: An extension library for easier access to commonly used functionality for SnackBars
-version: 1.0.4
+version: 1.0.5
 homepage: https://github.com/arnemolland/snack
 
 environment:
@@ -10,7 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  pedantic: ^1.8.0
+  pedantic: ^1.9.0
 
 dev_dependencies:
   flutter_test:
