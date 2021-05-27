@@ -5,7 +5,7 @@ import 'package:snack/snack.dart';
 void main() {
   testWidgets('Show a SnackBar using show() extension', (tester) async {
     await tester.pumpWidget(MaterialApp(home: ShowSnackBarTest()));
-    final buttonFinder = find.byType(RaisedButton);
+    final buttonFinder = find.byType(ElevatedButton);
     await tester.tap(buttonFinder);
     await tester.pump();
     final snackFinder = find.byType(SnackBar);
@@ -13,9 +13,10 @@ void main() {
     expect(snackFinder, findsOneWidget);
   });
 
-  testWidgets('Show a SnackBar using show(root: true) extension', (tester) async {
+  testWidgets('Show a SnackBar using show(root: true) extension',
+      (tester) async {
     await tester.pumpWidget(MaterialApp(home: ShowSnackBarTest(root: true)));
-    final buttonFinder = find.byType(RaisedButton);
+    final buttonFinder = find.byType(ElevatedButton);
     await tester.tap(buttonFinder);
     await tester.pump();
     final snackFinder = find.byType(SnackBar);
@@ -23,9 +24,10 @@ void main() {
     expect(snackFinder, findsOneWidget);
   });
 
-  testWidgets('Show a SnackBar using show(scaffoldState) extension', (tester) async {
+  testWidgets('Show a SnackBar using show(scaffoldState) extension',
+      (tester) async {
     await tester.pumpWidget(MaterialApp(home: RootScaffold()));
-    final buttonFinder = find.byType(RaisedButton);
+    final buttonFinder = find.byType(ElevatedButton);
     await tester.tap(buttonFinder);
     await tester.pump();
     final snackFinder = find.byType(SnackBar);
@@ -35,14 +37,14 @@ void main() {
 }
 
 class RootScaffold extends StatelessWidget {
-  const RootScaffold({Key key}) : super(key: key);
+  const RootScaffold({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Builder(
         builder: (context) {
-          return ShowSnackBarTest(state: Scaffold.of(context));
+          return ShowSnackBarTest(state: ScaffoldMessenger.of(context));
         },
       ),
     );
@@ -51,18 +53,19 @@ class RootScaffold extends StatelessWidget {
 
 class ShowSnackBarTest extends StatelessWidget {
   final bool root;
-  final ScaffoldState state;
+  final ScaffoldMessengerState? state;
   final bar = SnackBar(content: Container());
 
-  ShowSnackBarTest({Key key, this.root = false, this.state}) : super(key: key);
+  ShowSnackBarTest({Key? key, this.root = false, this.state}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Builder(
         builder: (context) {
-          return RaisedButton(
+          return ElevatedButton(
             onPressed: () => bar.show(context),
+            child: SizedBox(width: 1, height: 1),
           );
         },
       ),

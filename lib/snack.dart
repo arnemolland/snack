@@ -13,26 +13,29 @@ extension Snack on SnackBar {
   ///
   /// `scaffoldState`: If set, the `SnackBar` is shown in the context
   /// of the given `ScaffoldState`
-  void show(BuildContext context,
-      {bool root = false,
-      bool hideCurrent = true,
-      ScaffoldState scaffoldState}) {
-    if (scaffoldState != null) {
+  void show(
+    BuildContext context, {
+    bool root = false,
+    bool hideCurrent = true,
+    ScaffoldMessengerState? messengerState,
+  }) {
+    if (messengerState != null) {
       if (hideCurrent) {
-        scaffoldState.hideCurrentSnackBar();
+        messengerState.hideCurrentSnackBar();
       }
-      scaffoldState.showSnackBar(this);
+      messengerState.showSnackBar(this);
     } else if (root) {
-      final state = context.findRootAncestorStateOfType<ScaffoldState>();
+      final state =
+          context.findRootAncestorStateOfType<ScaffoldMessengerState>();
       if (hideCurrent) {
-        state.hideCurrentSnackBar();
+        state?.hideCurrentSnackBar();
       }
-      state.showSnackBar(this);
+      state?.showSnackBar(this);
     } else {
       if (hideCurrent) {
-        Scaffold.of(context).hideCurrentSnackBar();
+        ScaffoldMessenger.of(context).hideCurrentSnackBar();
       }
-      Scaffold.of(context).showSnackBar(this);
+      ScaffoldMessenger.of(context).showSnackBar(this);
     }
   }
 }
@@ -40,5 +43,5 @@ extension Snack on SnackBar {
 /// [BuildContext] extensions for performing [SnackBar]-related actions
 /// on the context instance.
 extension Extra on BuildContext {
-  void hideSnack() => Scaffold.of(this).hideCurrentSnackBar();
+  void hideSnack() => ScaffoldMessenger.of(this).hideCurrentSnackBar();
 }
