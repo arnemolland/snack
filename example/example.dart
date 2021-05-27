@@ -10,7 +10,7 @@ class Example extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: RaisedButton(
+      body: ElevatedButton(
         child: Text('Show snack'),
         onPressed: () => bar.show(context),
       ),
